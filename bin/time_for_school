@@ -4,17 +4,26 @@ require_relative "../lib/user.rb"
 require_relative "../lib/teacher.rb"
 require_relative "../lib/student.rb"
 
+# Creates a new Student instance called steve.
 steve = Student.new
 steve.first_name = "Steve"
 steve.last_name = "Jobs"
 
+# Creates a new Teacher instance called avi.
 avi = Teacher.new
 avi.first_name = "Avi"
 avi.last_name = "Flombaum"
 
+# Set the variable some_knowledge equal to the teach method from Teacher, which
+# we can call on avi b/c that is an INSTANCE of Teacher! #teach will return
+# a random string from the array.
+some_knowledge = avi.teach
 
-some_knowledge = avi.teach 
-
+# We can call #learn on steve b/c that is an INSTANCE of Student! #learn will
+# add the string to the Student's empty @knowledge array.
 steve.learn(some_knowledge)
 
+# Here steve.knowledge will call the #knowledge method on steve, who is a
+# student instance, which return the @knowledge array, then .first will get
+# the first value from the array.
 puts "Steve just learned this important knowledge: '#{steve.knowledge.first}' from Avi"
